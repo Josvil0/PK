@@ -29,5 +29,57 @@
         android:layout_marginStart="200dp"
         android:src="@drawable/braviary_frente" />
 
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Mucho texto para ti"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="470dp">
+
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/NombreLucario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Lucario"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="300dp"/>
+    <TextView
+        android:id="@+id/SaludLucario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Tu salud aqui"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="420dp"
+        android:layout_marginLeft="300dp"/>
+
+
+    <TextView
+        android:id="@+id/NombreBraviary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Braviary"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:id="@+id/SaludBraviary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Tu salud aqui"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="20dp"/>
+
+
 
 </FrameLayout>

@@ -1,17 +1,33 @@
 package com.example.pk;
 
+import java.util.List;
+
 public class Pokemon {
     private String nombre;
-    private int hp,ataque,defensa,ataqueEspecial,DefensaEspecial;
+    private int hp,hpMax,ataque,defensa,ataqueEspecial,DefensaEspecial;
+    private List<Movimiento> movimientos;
 
-
-    public Pokemon(String nombre, int hp, int ataque, int defensa, int ataqueEspecial, int defensaEspecial) {
+    public Pokemon(String nombre, int hp,int hpMax, int ataque, int defensa, int ataqueEspecial, int defensaEspecial, List<Movimiento> movimientos) {
         this.nombre = nombre;
         this.hp = hp;
+        this.hpMax =  hpMax;
         this.ataque = ataque;
         this.defensa = defensa;
         this.ataqueEspecial = ataqueEspecial;
         DefensaEspecial = defensaEspecial;
+        this.movimientos = movimientos;
+
+    }
+
+    public Pokemon(Pokemon oponenteOriginal) {
+    }
+
+    public List<Movimiento> getMovimientos() {
+        return movimientos;
+    }
+
+    public void setMovimientos(List<Movimiento> movimientos) {
+        this.movimientos = movimientos;
     }
 
     public String getNombre() {
@@ -21,6 +37,10 @@ public class Pokemon {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getHpMax() { return hpMax;}
+
+    public int setHpMax(int hpMax) { return this.hpMax = hpMax;}
 
     public int getHp() {
         return hp;
@@ -61,4 +81,6 @@ public class Pokemon {
     public void setDefensaEspecial(int defensaEspecial) {
         DefensaEspecial = defensaEspecial;
     }
+
+
 }

@@ -80,14 +80,14 @@ public class FragmenMain extends Fragment {
             public void onClick(View view) {
                 FragmentAtaque fragmentAtaque = new FragmentAtaque();
 
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.menu,fragmentAtaque);
+                transaction.replace(R.id.menu, fragmentAtaque);
                 transaction.addToBackStack(null);
-
 
                 transaction.commit();
             }
         });
+
     }
 }

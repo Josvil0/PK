@@ -2,11 +2,18 @@ package com.example.pk;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +30,8 @@ public class FragmentAtaque extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button atras,ataque1,ataque2,ataque3,ataque4;
+    private CombateViewModel combateViewModel;
 
     public FragmentAtaque() {
         // Required empty public constructor
@@ -60,5 +69,52 @@ public class FragmentAtaque extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ataque, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        combateViewModel = new ViewModelProvider(requireActivity()).get(CombateViewModel.class);
+
+
+
+        atras = view.findViewById(R.id.botonAtras2);
+        ataque1 = view.findViewById(R.id.ataque1);
+        ataque2 = view.findViewById(R.id.ataque2);
+        ataque3 = view.findViewById(R.id.ataque3);
+        ataque4 = view.findViewById(R.id.ataque4);
+
+        atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmenMain fragmentmain = new FragmenMain();
+
+                FragmentTransaction transaction = requireActivity()
+                        .getSupportFragmentManager()
+                        .beginTransaction();
+
+                transaction.replace(R.id.menu, fragmentmain);
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+            }
+        });
+
+        ataque1.setOnClickListener(v -> realizarAtaque(0));
+        ataque2.setOnClickListener(v -> realizarAtaque(1));
+        ataque3.setOnClickListener(v -> realizarAtaque(2));
+        ataque4.setOnClickListener(v -> realizarAtaque(3));
+    }
+    private void realizarAtaque(int ataque) {
+        if (combateViewModel.getJugador().getValue() != null){
+            Pokemon jugador = combateViewModel.getJugador().getValue();
+
+            List<Movimiento> movimientosJugador = jugador.getMovimientos();
+            Movimiento movimiento = movimientosJugador.get(ataque);
+
+            combateViewModel.realizarMovimiento(movimiento);
+    }
+
     }
 }

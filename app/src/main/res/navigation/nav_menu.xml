@@ -13,18 +13,10 @@
         <action
             android:id="@+id/action_fragmenMain_to_fragmentAtaque"
             app:destination="@id/fragmentAtaque" />
-        <action
-            android:id="@+id/action_fragmenMain_to_fragmentCura"
-            app:destination="@id/fragmentCura" />
     </fragment>
     <fragment
         android:id="@+id/fragmentAtaque"
         android:name="com.example.pk.FragmentAtaque"
         android:label="fragment_ataque"
         tools:layout="@layout/fragment_ataque" />
-    <fragment
-        android:id="@+id/fragmentCura"
-        android:name="com.example.pk.FragmentCura"
-        android:label="fragment_cura"
-        tools:layout="@layout/fragment_cura" />
 </navigation>
